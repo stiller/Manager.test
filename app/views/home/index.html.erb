@@ -1,0 +1,22 @@
+<h1>Rabbit On Rails</h1>
+
+<h2>Manager</h2>
+
+<%= form_tag({:controller => "home", :action => "publish"}, :method => "post") do %>
+  <%= label_tag(:message, "Message to publish:") %>
+  <%= text_field_tag(:message) %>
+  <%= submit_tag("Publish") %>
+<% end %>
+
+<% if flash[:published] %>
+    <p>Published a message!</p>
+<% end %>
+
+<% if flash[:server_error] %>
+  <p>There was a problem publishing your page, please try again later.</p>
+<% end %>
+
+
+<h2>Sites.App</h2>
+
+<%= @body %>
